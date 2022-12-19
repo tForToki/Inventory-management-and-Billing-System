@@ -8,26 +8,28 @@ public class BookCollection {
     private int MAX_SIZE = 10000;
 
     public BookCollection(){
-
+    	
     }
 
     public boolean addBook(Book book){
+    	books[numberOfBooks++] = book;
         return true;
-        //TODO: Needs to be filled up
+        //TODO : Needs to be filled up
     }
 
     public boolean removeBook(int index){
         return true;
-        //TODO: needs to be implemented
+        //TODO : needs to be implemented
     }
 
     public Book getBooks(String book) {
+    	return books[numberOfBooks];
         //TODO : needs to be implemented
     }
 
     public Book[] getBookCollection() {
         return books;
-        //todo: needs to be implemented;
+        //TODO : needs to be implemented;
     }
 
     public void resetBooks(){
@@ -35,7 +37,7 @@ public class BookCollection {
     }
 
     public int getNumberOfBooks(){
-        return ;
+        return numberOfBooks;
         //TODO: needs to be implemented
     }
 

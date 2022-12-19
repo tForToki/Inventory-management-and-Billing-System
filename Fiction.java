@@ -4,7 +4,7 @@ public class Fiction implements Genre {
 
     private String GENRE = "Fiction";
     private String subGenre;
-    private double genreDiscount;
+    private double genreDiscount = 9.0;
 
 
     public Fiction(String subGenre) {
@@ -21,7 +21,7 @@ public class Fiction implements Genre {
 
     @Override
     public String getGenre() {
-        return null;
+        return GENRE;
     }
 
     public double getGenreDiscount() {
