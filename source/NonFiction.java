@@ -1,4 +1,4 @@
-package books_now;
+package source;
 
 public class NonFiction implements Genre {
     private String GENRE = "Non-Fiction";
