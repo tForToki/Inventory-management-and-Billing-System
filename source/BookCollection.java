@@ -22,7 +22,7 @@ public class BookCollection {
         //TODO : needs to be implemented
     }
 
-    public Book getBooks(String book) {
+    public Book getBook(String book) {
     	return books[numberOfBooks-1];
         //TODO : needs to be implemented
     }

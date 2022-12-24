@@ -4,11 +4,12 @@ public class Fiction implements Genre {
 
     private String GENRE = "Fiction";
     private String subGenre;
-    private double genreDiscount = 9.0;
+    private double genreDiscount;
 
 
     public Fiction(String subGenre) {
         this.subGenre = subGenre;
+        genreDiscount = 9.0;
     }
 
     public String getSubGenre() {

@@ -3,10 +3,11 @@ package source;
 public class NonFiction implements Genre {
     private String GENRE = "Non-Fiction";
     private String subGenre;
-    private double genreDiscount = 10.0;
+    private double genreDiscount;
 
     public NonFiction(String subGenre) {
         this.subGenre = subGenre;
+        genreDiscount = 10.0;
     }
 
     public String getSubGenre() {
