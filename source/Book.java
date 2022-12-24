@@ -63,14 +63,13 @@ public class Book implements Comparable{
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "Book\n" +
                 "name='" + name + '\'' +
-                ", price=" + price +
-                ", writer=" + writer +
-                ", percentageDiscount=" + percentageDiscount +
-                ", genre=" + genre +
-                ", isbn='" + isbn + '\'' +
-                ", yearOfPublish=" + yearOfPublish +
-                '}';
+                "\nprice=" + price +
+                "\nwriter=" + writer +
+                "\npercentageDiscount=" + percentageDiscount +
+                "\ngenre=" + genre.getClass().getSimpleName() +
+                "\nisbn='" + isbn + '\'' +
+                "\nyearOfPublish=" + yearOfPublish;
     }
 }

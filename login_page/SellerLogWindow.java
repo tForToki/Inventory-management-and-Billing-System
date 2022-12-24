@@ -117,7 +117,7 @@ public class SellerLogWindow extends JFrame {
 		});
 		btnNewButton.setFont(new Font("Nunito SemiBold", Font.PLAIN, 30));
 		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setBackground(Color.RED);
+		btnNewButton.setBackground(Color.BLUE);
 		btnNewButton.setBounds(0, 384, 684, 45);
 		contentPane.add(btnNewButton);
 		
@@ -131,7 +131,7 @@ public class SellerLogWindow extends JFrame {
 		});
 		btnClear.setForeground(Color.WHITE);
 		btnClear.setFont(new Font("Nunito SemiBold", Font.PLAIN, 30));
-		btnClear.setBackground(Color.BLUE);
+		btnClear.setBackground(Color.RED);
 		btnClear.setBounds(0, 428, 684, 45);
 		contentPane.add(btnClear);
 		

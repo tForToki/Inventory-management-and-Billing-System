@@ -1,18 +1,18 @@
 package source;
 
-import java.util.Arrays;
-
 public class BookCollection {
     private Book[] books;
-    private int numberOfBooks =0;
+    private int numberOfBooks;
     private int MAX_SIZE = 10000;
 
     public BookCollection(){
-    	
+    	this.books = new Book[MAX_SIZE];
+    	this.numberOfBooks =0;
     }
 
     public boolean addBook(Book book){
-    	books[numberOfBooks++] = book;
+    	books[numberOfBooks] = book;
+    	numberOfBooks++;
         return true;
         //TODO : Needs to be filled up
     }
@@ -23,7 +23,7 @@ public class BookCollection {
     }
 
     public Book getBooks(String book) {
-    	return books[numberOfBooks];
+    	return books[numberOfBooks-1];
         //TODO : needs to be implemented
     }
 
@@ -55,12 +55,12 @@ public class BookCollection {
 
 	@Override
 	public String toString() {
-		return "BookCollection [books=" + Arrays.toString(books) + ", numberOfBooks=" + numberOfBooks + ", MAX_SIZE="
-				+ MAX_SIZE + ", getBookCollection()=" + Arrays.toString(getBookCollection()) + ", getNumberOfBooks()="
-				+ getNumberOfBooks() + "]";
+		String str = "Books \n";
+		for (int i = 0; i < numberOfBooks; i++) {
+			str.concat(books[i].toString());
+		}
+		return str;
 	}
-    
-    
     
     
 }

@@ -3,6 +3,7 @@ package menus;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.TextArea;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 
 import login_page.AdminLogWindow;
 import others.InvoiceWindow;
+import source.BookCollection;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -43,7 +45,7 @@ public class Menu1 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 698, 510);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.BLUE);
+		contentPane.setBackground(new Color(125, 90, 80));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -52,7 +54,7 @@ public class Menu1 extends JFrame {
 		JTextPane txtpnLogin = new JTextPane();
 		txtpnLogin.setForeground(Color.WHITE);
 		txtpnLogin.setEditable(false);
-		txtpnLogin.setBackground(Color.BLUE);
+		txtpnLogin.setBackground(new Color(125, 90, 80));
 		txtpnLogin.setFont(new Font("Nunito ExtraBold", Font.BOLD, 45));
 		txtpnLogin.setText("Options\r\n");
 		txtpnLogin.setBounds(250, 0, 186, 68);
@@ -66,10 +68,10 @@ public class Menu1 extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBackground(Color.MAGENTA);
+		btnNewButton.setBackground(new Color(229, 178, 153));
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
-		btnNewButton.setBounds(0, 247, 684, 47);
+		btnNewButton.setBounds(0, 291, 684, 47);
 		contentPane.add(btnNewButton);
 		
 		JButton btnRemoveBook = new JButton("Reset Books\r\n");
@@ -79,28 +81,21 @@ public class Menu1 extends JFrame {
 		});
 		btnRemoveBook.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
 		btnRemoveBook.setForeground(Color.WHITE);
-		btnRemoveBook.setBackground(Color.RED);
+		btnRemoveBook.setBackground(new Color(121, 135, 119));
 		btnRemoveBook.setBounds(0, 426, 684, 47);
 		contentPane.add(btnRemoveBook);
 		
 		JButton btnBookInformation = new JButton("Book Information");
 		btnBookInformation.setForeground(Color.WHITE);
 		btnBookInformation.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
-		btnBookInformation.setBackground(Color.MAGENTA);
+		btnBookInformation.setBackground(new Color(189, 210, 182));
 		btnBookInformation.setBounds(0, 336, 684, 47);
 		contentPane.add(btnBookInformation);
-		
-		JButton btnNewButton_1_2 = new JButton("Get Book\r\n");
-		btnNewButton_1_2.setForeground(Color.WHITE);
-		btnNewButton_1_2.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
-		btnNewButton_1_2.setBackground(Color.MAGENTA);
-		btnNewButton_1_2.setBounds(0, 292, 684, 47);
-		contentPane.add(btnNewButton_1_2);
 		
 		JButton btnNewButton_1_2_1 = new JButton("Remove Book\r\n");
 		btnNewButton_1_2_1.setForeground(Color.WHITE);
 		btnNewButton_1_2_1.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
-		btnNewButton_1_2_1.setBackground(Color.RED);
+		btnNewButton_1_2_1.setBackground(new Color(162, 178, 159));
 		btnNewButton_1_2_1.setBounds(0, 380, 684, 47);
 		contentPane.add(btnNewButton_1_2_1);
 		
@@ -114,8 +109,8 @@ public class Menu1 extends JFrame {
 		});
 		btnNewButton_1_2_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_2_1_1.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
-		btnNewButton_1_2_1_1.setBackground(Color.YELLOW);
-		btnNewButton_1_2_1_1.setBounds(0, 201, 684, 47);
+		btnNewButton_1_2_1_1.setBackground(new Color(180, 132, 108));
+		btnNewButton_1_2_1_1.setBounds(0, 246, 684, 47);
 		contentPane.add(btnNewButton_1_2_1_1);
 		
 		JButton btnNewButton_1 = new JButton("Back");

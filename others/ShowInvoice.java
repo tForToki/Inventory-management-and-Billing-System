@@ -53,8 +53,8 @@ public class ShowInvoice extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JTextPane textPane = new JTextPane();
-		textPane.setFont(new Font("JetBrains Mono Light", Font.PLAIN, 15));
 		textPane.setEditable(false);
+		textPane.setFont(new Font("JetBrains Mono Light", Font.PLAIN, 15));
 		textPane.setBounds(0, 74, 684, 399);
 		contentPane.add(textPane);
 		

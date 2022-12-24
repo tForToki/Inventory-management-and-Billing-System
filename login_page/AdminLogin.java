@@ -41,7 +41,7 @@ public class AdminLogin extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 698, 510);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 252, 0));
+		contentPane.setBackground(new Color(240, 255, 66));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -50,7 +50,7 @@ public class AdminLogin extends JFrame {
 		JButton btnNewButton = new JButton("Admin\r\n");
 		btnNewButton.setFont(new Font("Nunito SemiBold", Font.PLAIN, 35));
 		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setBackground(Color.RED);
+		btnNewButton.setBackground(new Color(130, 205, 71));
 		btnNewButton.setBounds(0, 310, 684, 82);
 		contentPane.add(btnNewButton);
 		
@@ -64,13 +64,13 @@ public class AdminLogin extends JFrame {
 		});
 		btnSellerLogin.setForeground(Color.WHITE);
 		btnSellerLogin.setFont(new Font("Nunito SemiBold", Font.PLAIN, 35));
-		btnSellerLogin.setBackground(new Color(0, 0, 255));
+		btnSellerLogin.setBackground(new Color(84, 180, 53));
 		btnSellerLogin.setBounds(0, 391, 684, 82);
 		contentPane.add(btnSellerLogin);
 		
 		JTextPane txtpnLogin = new JTextPane();
 		txtpnLogin.setEditable(false);
-		txtpnLogin.setBackground(new Color(255, 252, 0));
+		txtpnLogin.setBackground(new Color(240, 255, 66));
 		txtpnLogin.setFont(new Font("Nunito ExtraBold", Font.BOLD, 45));
 		txtpnLogin.setText("LogIn");
 		txtpnLogin.setBounds(264, 113, 166, 82);

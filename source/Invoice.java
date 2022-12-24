@@ -2,6 +2,7 @@ package source;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class Invoice {
     private Book[] books;
@@ -9,7 +10,7 @@ public class Invoice {
     private int numberOfBooks=0;
 
     public Invoice(){
-
+    	
     }
 
     public Book[] getBook(){
@@ -32,24 +33,57 @@ public class Invoice {
     }
 
     public double calculatePrice(){
-    	return books[numberOfBooks].getPrice()-calculateAuthorDiscountPrice()-calculateBookDiscountPrice()-calculateGenreDiscountPrice();
+    	return calculateAuthorDiscountPrice()+calculateBookDiscountPrice()+calculateGenreDiscountPrice();
         //TODO: needs to be implemented
     }
 
     public double calculateAuthorDiscountPrice(){
-        //TODO: needs to be implemented
+    	int cnt =1;
+    	int index = 0 ;
+    	for (int i = 0; i < books.length; i++) {
+    		if(cnt ==3) {
+    			index = i;
+    		}
+			if ((i<books.length-1) && books[i].getWriter() == books[i+1].getWriter()) {
+				cnt++;
+			}
+		}
+        boolean bool = isAuthorDiscountEligible();
+        if(bool == true)
+        	return (books[index].getPrice()-(books[index].getPrice())*((45/100)));
+        else
+        	return 0;
+       
     }
 
     public double calculateBookDiscountPrice(){
-    	return (books[numberOfBooks].getPrice()*(books[numberOfBooks].getPercentageDiscount()/100));
+    	double total =0;
+    	for (int i = 0; i < books.length; i++) {
+    		total +=(books[i].getPrice()-(books[i].getPrice())*((books[i].getPercentageDiscount())/100));
+		}
+    	return total;
+    	
     }
 
     public double calculateGenreDiscountPrice(){
-    	return (books[numberOfBooks].getPrice())*((books[numberOfBooks].getGenre().getGenreDiscount())/100);
+    	double total =0;
+    	for (int i = 0; i < books.length; i++) {
+    		total +=(books[i].getPrice()-(books[i].getPrice())*((books[i].getGenre().getGenreDiscount())/100));
+		}
+    	return total;
     }
 
-    public double isAuthorDiscountEligible(){
-    	//TODO: needs to be implemented
+    public boolean isAuthorDiscountEligible(){
+    	int cnt =1;
+    	for (int i = 0; i < books.length; i++) {
+			if ((i<books.length-1) && books[i].getWriter() == books[i+1].getWriter()) {
+				cnt++;
+			}
+		}
+    	if(cnt>=3)
+    		return true;
+    	else
+    		return false;
     }
 
 	@Override
