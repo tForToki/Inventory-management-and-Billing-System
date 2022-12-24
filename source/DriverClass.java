@@ -83,16 +83,29 @@ public class DriverClass {
 
 		BookCollection c = new BookCollection();
 		c.addBook(b0);
-
 		c.addBook(b5);
-
 		c.addBook(b1);
-
 		c.addBook(b3);
-
 		c.addBook(b4);
-
 		c.addBook(b2);
+		
+		
+		//1
+		c.sortByIsbn();
+		for (int i = 0; i < c.getNumberOfBooks(); i++) {
+			System.out.println(c.getBookCollection()[i].getName()+","+c.getBookCollection()[i].getIsbn());
+		}
+		System.out.println();
+		
+		
+		//2
+		c.sortByYearOfPublish();
+		for (int i = 0; i < c.getNumberOfBooks(); i++) {
+			System.out.println(c.getBookCollection()[i].getName()+","+c.getBookCollection()[i].getWriter().getName()+","+c.getBookCollection()[i].getYearOfPublish());
+		}
+		System.out.println();
+		
+		
 
 		//input set for task 3,4,5,6
 		c = new BookCollection();
@@ -117,8 +130,53 @@ public class DriverClass {
 		c.addBook(b8);
 		c.addBook(b9);
 		c.addBook(b20);
-
-		 
+		
+		
+		//3
+		String a;
+		for (int i = 0; i < c.getNumberOfBooks(); i++) {
+			if(c.getBookCollection()[i].getWriter().getAge()> 50 && c.getBookCollection()[i].getWriter().getAge() < 55) {
+				a =c.getBookCollection()[i].getWriter().getName();
+				if(c.getBookCollection()[i+1].getWriter().getName() != a)
+			System.out.println(c.getBookCollection()[i].getWriter().getName()+","+c.getBookCollection()[i].getWriter().getAge());
+			}
+		}
+		System.out.println();
+		
+		
+		//4
+		c.sortByPrice();
+		System.out.println(c.getBookCollection()[0].getName()+","+c.getBookCollection()[0].getPrice());
+		System.out.println();
+		
+		
+		//5
+		System.out.println();
+		double max =c.getBookCollection()[0].getPercentageDiscount();
+		for (int i = 1; i < c.getNumberOfBooks(); i++) {
+			if(max < c.getBookCollection()[i].getPercentageDiscount()) {
+				max = c.getBookCollection()[i].getPercentageDiscount();
+			}
+		}
+		for (int i = 0; i < c.getNumberOfBooks(); i++) {
+			if(max == c.getBookCollection()[i].getPercentageDiscount()) {
+				System.out.println(c.getBookCollection()[i].getName()+","+c.getBookCollection()[i].getPrice()+","+c.getBookCollection()[i].getPercentageDiscount());
+			}
+		}
+		
+		System.out.println();
+		System.out.println();
+		
+		
+		
+		//6
+		for (int i = 0; i < c.getNumberOfBooks(); i++) {
+			if (c.getBookCollection()[i].getGenre().getSubGenre() == "crime" && c.getBookCollection()[i].getYearOfPublish()> 2015) {
+				System.out.println(c.getBookCollection()[i].getName()+", "+c.getBookCollection()[i].getWriter().getName());
+			}
+		}
+		System.out.println();
+		
 		//input set for problem 7
 		Invoice i = new Invoice();
 		i.addBook(b1);
