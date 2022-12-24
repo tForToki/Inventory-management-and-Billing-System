@@ -2,16 +2,14 @@ package source;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 
 public class Invoice {
-	private Book[] books;
+	private Book[] books = new Book[10000];
 	private LocalDateTime date;
 	private int numberOfBooks;
 	private int index;
 
 	public Invoice() {
-		this.books = new Book[10000];
 		this.numberOfBooks = 0;
 		this.date = LocalDateTime.now();
 	}
@@ -27,14 +25,23 @@ public class Invoice {
 	}
 
 	public void addBook(Book book) {
-		books[numberOfBooks] = book;
-		numberOfBooks++;
+		books[this.numberOfBooks] = book;
+		this.numberOfBooks++;
 	}
 
 	public double getFinalPrice() {
-		double finalPrice = 0;
-		finalPrice += (3*calculateAuthorDiscountPrice()) + calculateBookDiscountPrice() + calculateGenreDiscountPrice();
-		return finalPrice;
+		double d1 = calculateGenreDiscountPrice();
+		double d2 = calculateAuthorDiscountPrice();
+		double d3 = calculateBookDiscountPrice();
+		if(Double.compare(d1, d2) < 0 && Double.compare(d1, d3)<0) {
+			return d1;
+		}
+		else if(Double.compare(d2, d1)<0 && Double.compare(d2, d3)<0) {
+			return d2;
+		}
+		else {
+			return d3;
+		}
 	}
 
 	public double calculatePrice() {
@@ -48,34 +55,36 @@ public class Invoice {
 	public double calculateAuthorDiscountPrice() {
 
 		if (isAuthorDiscountEligible()) {
-			return books[index].getPrice() * (1 - 0.45);
+			return 3.0*books[index].getPrice() * (1 - 0.45);
 		} else
 			return 0;
 
 	}
 
 	public double calculateBookDiscountPrice() {
-		double total = 0;
-		for (int i = 0; i < books.length; i++) {
-			total += (books[i].getPrice() - (books[i].getPrice()) * ((books[i].getPercentageDiscount()) / 100));
+		double bookDiscount = 0;
+		for (int i = 0; i < this.numberOfBooks; i++) {
+			bookDiscount += books[i].getPercentageDiscount();
 		}
-		return total;
-
+		return (calculatePrice()-(calculatePrice()*(bookDiscount))/100);
 	}
 
+	
+
 	public double calculateGenreDiscountPrice() {
-		double total = 0;
-		for (int i = 0; i < books.length; i++) {
-			total += (books[i].getPrice() - (books[i].getPrice()) * ((books[i].getGenre().getGenreDiscount()) / 100));
+		double genreDiscount = 0;
+		for (int i = 0; i < this.numberOfBooks; i++) {
+			genreDiscount += books[i].getGenre().getGenreDiscount();
 		}
-		return total;
+		return (calculatePrice()-calculatePrice()*(genreDiscount/100));
 	}
 
 	public boolean isAuthorDiscountEligible() {
-		int cnt = 1;
-		for (int i = 0; i < books.length; i++) {
-			for (int j = i + 1; j < books.length; j++) {
-				if ((j < books.length - 1) && books[i].getWriter() == books[j].getWriter()) {
+		int cnt;
+		for (int i = 0; i < this.numberOfBooks; i++) {
+			cnt = 1;
+			for (int j = i + 1; j < this.numberOfBooks; j++) {
+				if (this.books[i].getWriter() == this.books[j].getWriter()) {
 					cnt++;
 				}
 			}
@@ -88,14 +97,20 @@ public class Invoice {
 
 		return false;
 	}
+	
+	
 
 	@Override
 	public String toString() {
-		return "Invoice [books=" + Arrays.toString(books) + ", date=" + date + ", numberOfBooks=" + numberOfBooks
-				+ ", getFinalPrice()=" + getFinalPrice() + ", calculatePrice()=" + calculatePrice()
-				+ ", calculateAuthorDiscountPrice()=" + calculateAuthorDiscountPrice()
-				+ ", calculateBookDiscountPrice()=" + calculateBookDiscountPrice() + ", calculateGenreDiscountPrice()="
-				+ calculateGenreDiscountPrice() + ", isAuthorDiscountEligible()=" + isAuthorDiscountEligible() + "]";
+		String s = String.format("purchase date: %s\n",getDateTime());
+		for(int i=0;i<this.numberOfBooks;i++) {
+			s = String.format(s+"%d. %s : %.1f\n",i+1,this.books[i].getName(),this.books[i].getPrice());
+		}
+		s = String.format(s+"price: %.1f\n"
+				+ "price after discount: %.2f",calculatePrice(),getFinalPrice());
+		
+		return s;
 	}
+	
 
 }

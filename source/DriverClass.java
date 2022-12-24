@@ -125,6 +125,9 @@ public class DriverClass {
 		i.addBook(b2);
 		i.addBook(b3);
 		i.addBook(b8);
+		
+		System.out.println(i);
+		System.out.println();
 
 		//input set for problem 8
 		c = new BookCollection();
@@ -138,6 +141,10 @@ public class DriverClass {
 		i = new Invoice();
 		i.addBook(c.getBook("9123567891201"));
 		i.addBook(c.getBook("9123567891202"));
+		System.out.println(i);
+		c.printBooksCollection();
+
+		
 
 	}
 

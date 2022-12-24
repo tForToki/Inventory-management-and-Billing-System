@@ -88,28 +88,28 @@ public class AddBooks extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		textField = new JTextField();
-		textField.setBounds(34, 147, 532, 47);
+		textField.setBounds(34, 147, 268, 47);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(34, 244, 532, 47);
+		textField_1.setBounds(34, 244, 268, 47);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(34, 341, 532, 47);
+		textField_2.setBounds(34, 341, 268, 47);
 		contentPane.add(textField_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(34, 438, 532, 47);
+		textField_3.setBounds(34, 438, 268, 47);
 		contentPane.add(textField_3);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(34, 535, 532, 47);
+		textField_4.setBounds(312, 147, 268, 47);
 		contentPane.add(textField_4);
 		
 		lblNewLabel_1 = new JLabel("Name\r\n");
@@ -134,40 +134,42 @@ public class AddBooks extends JFrame {
 		
 		lblNewLabel_5 = new JLabel("Year Of Publish");
 		lblNewLabel_5.setFont(new Font("JetBrains Mono Medium", Font.PLAIN, 15));
-		lblNewLabel_5.setBounds(34, 495, 163, 30);
+		lblNewLabel_5.setBounds(312, 107, 163, 30);
 		contentPane.add(lblNewLabel_5);
 		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
-		textField_5.setBounds(681, 147, 532, 47);
+		textField_5.setBounds(312, 244, 268, 47);
 		contentPane.add(textField_5);
 		
 		textField_6 = new JTextField();
 		textField_6.setColumns(10);
-		textField_6.setBounds(681, 244, 532, 47);
+		textField_6.setBounds(312, 341, 268, 47);
 		contentPane.add(textField_6);
 		
 		lblNewLabel_6 = new JLabel("Price\r\n");
 		lblNewLabel_6.setFont(new Font("JetBrains Mono Medium", Font.PLAIN, 15));
-		lblNewLabel_6.setBounds(681, 107, 163, 30);
+		lblNewLabel_6.setBounds(312, 204, 163, 30);
 		contentPane.add(lblNewLabel_6);
 		
 		lblNewLabel_7 = new JLabel("Percentage Of Discount");
 		lblNewLabel_7.setFont(new Font("JetBrains Mono Medium", Font.PLAIN, 15));
-		lblNewLabel_7.setBounds(681, 204, 211, 30);
+		lblNewLabel_7.setBounds(312, 301, 211, 30);
 		contentPane.add(lblNewLabel_7);
 		
 		JTextPane textPane = new JTextPane();
 		textPane.setEditable(false);
 		textPane.setFont(new Font("JetBrains Mono", Font.PLAIN, 15));
 		textPane.setBackground(Color.CYAN);
-		textPane.setBounds(681, 301, 532, 224);
+		textPane.setBounds(590, 107, 676, 555);
 		contentPane.add(textPane);
 		
 		btnNewButton = new JButton("ADD !\r\n");
 		btnNewButton.addActionListener(new ActionListener() {
 			//TODO : Needs Work
 			public void actionPerformed(ActionEvent e) {
+				
+				
 				String name = textField.getText();  
 			    String s = textField_1.getText();
 			    String[] str = s.split(",");
@@ -182,19 +184,24 @@ public class AddBooks extends JFrame {
 			    double price = Double.parseDouble(textField_5.getText());
 			    double percentageDiscount = Double.parseDouble(textField_6.getText());
 			    
+			    int i=0;
 				Book b = new Book(name, price, writer, percentageDiscount, new Fiction(genre), isbn, yearOfPublish);
 				BookCollection bc = new BookCollection();
-				bc.addBook(b);
+				Book[] bookArray = new Book[10000];
+				bookArray[i]  = b;
+				bc.addBook(bookArray[i]);
+				i++;
 				bc.getBookCollection();
-				textPane.setText(b.toString());
+				textPane.setText(bc.toString());
 				//JOptionPane.showMessageDialog(frame,b.toString());
+
 				
 			}
 		});
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBackground(Color.BLUE);
 		btnNewButton.setFont(new Font("Nunito Medium", Font.PLAIN, 30));
-		btnNewButton.setBounds(681, 535, 532, 47);
+		btnNewButton.setBounds(34, 513, 268, 47);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Back");
@@ -222,8 +229,29 @@ public class AddBooks extends JFrame {
 		btnNewButton_1_2.setForeground(Color.WHITE);
 		btnNewButton_1_2.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
 		btnNewButton_1_2.setBackground(new Color(252, 222, 192));
-		btnNewButton_1_2.setBounds(681, 592, 532, 47);
+		btnNewButton_1_2.setBounds(34, 559, 268, 47);
 		contentPane.add(btnNewButton_1_2);
+		
+		JButton btnNewButton_1_2_1 = new JButton("Get Book\r\n");
+		btnNewButton_1_2_1.setForeground(Color.WHITE);
+		btnNewButton_1_2_1.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
+		btnNewButton_1_2_1.setBackground(new Color(252, 222, 192));
+		btnNewButton_1_2_1.setBounds(300, 603, 268, 47);
+		contentPane.add(btnNewButton_1_2_1);
+		
+		JButton btnNewButton_1_2_2 = new JButton("Get Book\r\n");
+		btnNewButton_1_2_2.setForeground(Color.WHITE);
+		btnNewButton_1_2_2.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
+		btnNewButton_1_2_2.setBackground(new Color(252, 222, 192));
+		btnNewButton_1_2_2.setBounds(300, 559, 268, 47);
+		contentPane.add(btnNewButton_1_2_2);
+		
+		JButton btnNewButton_1_2_3 = new JButton("Get Book\r\n");
+		btnNewButton_1_2_3.setForeground(Color.WHITE);
+		btnNewButton_1_2_3.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
+		btnNewButton_1_2_3.setBackground(new Color(252, 222, 192));
+		btnNewButton_1_2_3.setBounds(34, 603, 268, 47);
+		contentPane.add(btnNewButton_1_2_3);
 		
 		
 		

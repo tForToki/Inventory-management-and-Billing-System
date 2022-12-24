@@ -83,7 +83,7 @@ public class GetBookWindow extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				BookCollection bc = new BookCollection();
 				Book[] b = bc.getBookCollection();
-				for (int i = 0; i < b.length; i++) {
+				for (int i = 0; i < bc.getNumberOfBooks(); i++) {
 					textArea.setText(b[i].toString());
 				}
 				
