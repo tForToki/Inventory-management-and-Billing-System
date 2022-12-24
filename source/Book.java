@@ -20,7 +20,11 @@ public class Book implements Comparable{
        this.yearOfPublish = yearOfPublish;
     }
 
-    public String getName() {
+    public Book() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getName() {
         return name;
     }
 

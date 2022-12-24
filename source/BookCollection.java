@@ -18,30 +18,31 @@ public class BookCollection {
 	}
 
 	public boolean removeBook(int index) {
-	        if(index<numberOfBooks)
-	        {
-	            for(int i=index;i<numberOfBooks-1;i++)
-	            {
-	                books[i]=books[i+1];
-	            }
-	            numberOfBooks--;
-	        }
-	        else
-	        {
-	            System.out.println("Invalid index...");
-	        }
+		if (index < numberOfBooks) {
+			for (int i = index; i < numberOfBooks - 1; i++) {
+				books[i] = books[i + 1];
+			}
+			numberOfBooks--;
+		} else {
+			System.out.println("Invalid index...");
+		}
 
-	        return true;
+		return true;
 
 	}
 
 	public Book getBook(String book) {
+		Book b = new Book();
 		for (int i = 0; i < this.numberOfBooks; i++) {
 			if (book == books[i].getIsbn()) {
-				return books[i];
-			}
-			if (book == books[i].getName()) {
-				return books[i];
+				b = books[i];
+				removeBook(i);
+				return b;
+				
+			} else if (book == books[i].getName()) {
+				b = books[i];
+				removeBook(i);
+				return b;
 			}
 		}
 		return null;
@@ -53,12 +54,11 @@ public class BookCollection {
 	}
 
 	public void resetBooks() {
-		for(int i=0;i<numberOfBooks;i++)
-        {
-            books[i]=null;
-        }
-        numberOfBooks=0;
-        //System.out.println("Successfully reset your book list");
+		for (int i = 0; i < numberOfBooks; i++) {
+			books[i] = null;
+		}
+		numberOfBooks = 0;
+		// System.out.println("Successfully reset your book list");
 	}
 
 	public int getNumberOfBooks() {
@@ -111,22 +111,22 @@ public class BookCollection {
 
 	@Override
 	public String toString() {
-		if(numberOfBooks==0) {
-            return "Book list is empty";
-        }
-        String str = "\n";
-        for (int i = 0; i < numberOfBooks; i++) {
-            str=str.concat("\n\n\n"+books[i].toString());
+		if (numberOfBooks == 0) {
+			return "Book list is empty";
+		}
+		String str = "\n";
+		for (int i = 0; i < numberOfBooks; i++) {
+			str = str.concat("\n\n\n" + books[i].toString());
 
-        }
+		}
 
-        return str;
+		return str;
 	}
-	
+
 	public void printBooksCollection() {
 		System.out.println("\n");
-		for(int i=0;i<this.numberOfBooks;i++) {
-			System.out.println(i+1 + ". "+books[i].getName());
+		for (int i = 0; i < this.numberOfBooks; i++) {
+			System.out.println(i + 1 + ". " + books[i].getName());
 		}
 	}
 
