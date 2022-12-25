@@ -60,44 +60,6 @@ public class Menu1 extends JFrame {
 		txtpnLogin.setBounds(250, 0, 186, 68);
 		contentPane.add(txtpnLogin);
 		
-		JButton btnNewButton = new JButton("Sort Books");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Sort sort = new Sort();
-				sort.setVisible(true);
-				dispose();
-			}
-		});
-		btnNewButton.setBackground(new Color(229, 178, 153));
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
-		btnNewButton.setBounds(0, 291, 684, 47);
-		contentPane.add(btnNewButton);
-		
-		JButton btnRemoveBook = new JButton("Reset Books\r\n");
-		btnRemoveBook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnRemoveBook.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
-		btnRemoveBook.setForeground(Color.WHITE);
-		btnRemoveBook.setBackground(new Color(121, 135, 119));
-		btnRemoveBook.setBounds(0, 426, 684, 47);
-		contentPane.add(btnRemoveBook);
-		
-		JButton btnBookInformation = new JButton("Book Information");
-		btnBookInformation.setForeground(Color.WHITE);
-		btnBookInformation.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
-		btnBookInformation.setBackground(new Color(189, 210, 182));
-		btnBookInformation.setBounds(0, 336, 684, 47);
-		contentPane.add(btnBookInformation);
-		
-		JButton btnNewButton_1_2_1 = new JButton("Remove Book\r\n");
-		btnNewButton_1_2_1.setForeground(Color.WHITE);
-		btnNewButton_1_2_1.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
-		btnNewButton_1_2_1.setBackground(new Color(162, 178, 159));
-		btnNewButton_1_2_1.setBounds(0, 380, 684, 47);
-		contentPane.add(btnNewButton_1_2_1);
 		
 		JButton btnNewButton_1_2_1_1 = new JButton("Add Book\r\n");
 		btnNewButton_1_2_1_1.addActionListener(new ActionListener() {
@@ -110,7 +72,7 @@ public class Menu1 extends JFrame {
 		btnNewButton_1_2_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_2_1_1.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
 		btnNewButton_1_2_1_1.setBackground(new Color(180, 132, 108));
-		btnNewButton_1_2_1_1.setBounds(0, 246, 684, 47);
+		btnNewButton_1_2_1_1.setBounds(0, 426, 684, 47);
 		contentPane.add(btnNewButton_1_2_1_1);
 		
 		JButton btnNewButton_1 = new JButton("Back");

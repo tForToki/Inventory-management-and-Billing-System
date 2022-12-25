@@ -59,20 +59,6 @@ public class SellerMenu extends JFrame {
 		txtpnLogin.setBounds(250, 0, 186, 68);
 		contentPane.add(txtpnLogin);
 		
-		JButton btnRemoveBook = new JButton("Invoice");
-		btnRemoveBook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				SellerInvoice si = new SellerInvoice();
-				si.setVisible(true);
-				dispose();
-			}
-		});
-		btnRemoveBook.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
-		btnRemoveBook.setForeground(Color.WHITE);
-		btnRemoveBook.setBackground(Color.RED);
-		btnRemoveBook.setBounds(0, 426, 684, 47);
-		contentPane.add(btnRemoveBook);
-		
 		JButton btnNewButton_1 = new JButton("Back");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -85,6 +71,19 @@ public class SellerMenu extends JFrame {
 		btnNewButton_1.setBackground(new Color(254, 222, 190));
 		btnNewButton_1.setBounds(0, 52, 85, 27);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnAddBook = new JButton("Add Book");
+		btnAddBook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SellerAddBook sab = new SellerAddBook();
+				sab.setVisible(true);
+				dispose();
+			}
+		});
+		btnAddBook.setForeground(Color.WHITE);
+		btnAddBook.setFont(new Font("Nunito Medium", Font.PLAIN, 25));
+		btnAddBook.setBackground(Color.RED);
+		btnAddBook.setBounds(0, 426, 684, 47);
+		contentPane.add(btnAddBook);
 	}
-
 }
