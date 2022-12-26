@@ -109,6 +109,7 @@ public class AddBooks extends JFrame {
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
+		textField_1.setToolTipText("Name,Email,Age,Gender");
 		textField_1.setColumns(10);
 		textField_1.setBounds(34, 244, 268, 47);
 		contentPane.add(textField_1);

@@ -169,9 +169,9 @@ public class DriverClass {
 		
 		
 		
-		//
+		//6
 		for (int i = 0; i < c.getNumberOfBooks(); i++) {
-			if (c.getBookCollection()[i].getGenre().getSubGenre() == "crime" && c.getBookCollection()[i].getYearOfPublish()> 2015) {
+			if (c.getBookCollection()[i].getGenre().getSubGenre() == "crime" && c.getBookCollection()[i].getYearOfPublish()> 2010) {
 				System.out.println(c.getBookCollection()[i].getName()+", "+c.getBookCollection()[i].getWriter().getName());
 			}
 		}
